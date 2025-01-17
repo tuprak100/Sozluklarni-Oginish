@@ -1,78 +1,78 @@
 const card = document.getElementById('card');
 const front = document.getElementById('front');
 const back = document.getElementById('back');
-const nextCardButton = document.getElementById('next-button');
-const flipCardButton = document.getElementById('flip-button');
+const nextCardButton = document.getElementById('next-card');
+const prevCardButton = document.getElementById('prev-card');
+const flipCardButton = document.getElementById('flip-card');
 const favoriteButton = document.getElementById('favoriteButton');
 const reviewFavoritesButton = document.getElementById('reviewFavorites');
-const allCardsButton = document.getElementById('allCardsButton'); // Add this button
-const congratulationsMessage = document.createElement('p');
-congratulationsMessage.textContent = "Congratulations! You've finished all the flashcards!";
-congratulationsMessage.style.display = 'none';
-congratulationsMessage.style.fontSize = '2em';
-congratulationsMessage.style.color = 'green';
-congratulationsMessage.style.textAlign='center';
-document.getElementById('card-container').appendChild(congratulationsMessage);
+const allCardsButton = document.getElementById('allCardsButton');
+const congratulationsMessage = document.getElementById('congratulationsMessage');
 
-const music = document.getElementById('background-music');
 let currentCardIndex = 0;
-
 const cards = [
-  { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/fronts/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_1.png" },
-  { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/fronts/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_2.png" },
-  // ... more cards
+    { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/fronts/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_1.png" },
+    { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/fronts/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_2.png" },
+    // Add more cards as needed
 ];
 
 function loadCard(index) {
-  front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
-  back.innerHTML = `<img src="${cards[index].back}" alt="Back">`;
+    front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
+    back.innerHTML = `<img src="${cards[index].back}" alt="Back">`;
 }
 
 // Flip the card
-flipButton.addEventListener('click', () => {
-  card.classList.toggle('flipped');
+flipCardButton.addEventListener('click', () => {
+    card.classList.toggle('flipped');
 });
 
 // Move to the next card
 nextCardButton.addEventListener('click', () => {
-  currentCardIndex = (currentCardIndex + 1) % cards.length;
-  loadCard(currentCardIndex);
-  card.classList.remove('flipped'); // Reset flip when moving to next card
+    currentCardIndex = (currentCardIndex + 1) % cards.length;
+    loadCard(currentCardIndex);
+    card.classList.remove('flipped'); // Reset flip when moving to next card
+    checkCompletion();
 });
 
-
-favoriteButton.addEventListener('click', () => {
-    images[currentCard].favorite = !images[currentCard].favorite;
-    favoriteButton.textContent = images[currentCard].favorite ? "★" : "☆";
-        if (images[currentCard].favorite) {
-        favoriteButton.classList.add("favorited");
-      } else {
-        favoriteButton.classList.remove("favorited");
-      }
-    showCard();
+// Move to the previous card
+prevCardButton.addEventListener('click', () => {
+    currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length; // Wrap around if index is less than 0
+    loadCard(currentCardIndex);
+    card.classList.remove('flipped'); // Reset flip when moving to previous card
+    checkCompletion();
 });
 
-reviewFavoritesButton.addEventListener('click', () => {
-    favoriteWords = images.filter(card => card.favorite);
-    if (favoriteWords.length === 0) {
-        alert("No favorite words selected yet.");
-        return;
+// Check if all cards have been reviewed
+function checkCompletion() {
+    if (currentCardIndex === cards.length - 1) {
+        congratulationsMessage.textContent = "Congratulations! You've finished all the flashcards!";
+        congratulationsMessage.style.display = 'block';
+    } else {
+        congratulationsMessage.style.display = 'none';
     }
-    images = favoriteWords;
-    currentCard = 0;
-    isReviewingFavorites = true; // Set the flag
-    showCard();
+}
+
+// Favorite button logic
+favoriteButton.addEventListener('click', () => {
+    favoriteButton.textContent = favoriteButton.textContent === '☆' ? '★' : '☆';
 });
 
-allCardsButton.addEventListener('click', () => { // Add event listener for the new button
-    images = originalImages;// Restore the original images
-    currentCard = 0;
-    isReviewingFavorites = false;// Reset the flag
-    showCard();
+// Review favorites button
+reviewFavoritesButton.addEventListener('click', () => {
+    alert("Review favorites is not implemented yet.");
+});
+
+// Show all cards button
+allCardsButton.addEventListener('click', () => {
+    currentCardIndex = 0;
+    loadCard(currentCardIndex);
+    card.classList.remove('flipped'); // Reset flip when showing all cards
+    congratulationsMessage.style.display = 'none'; // Hide congratulations message
 });
 
 // Initialize with the first card
 loadCard(currentCardIndex);
 
+// Background music (optional feature)
+const music = document.getElementById('background-music');
 music.play();
-loadCard(currentCardIndex); // Load the first card
