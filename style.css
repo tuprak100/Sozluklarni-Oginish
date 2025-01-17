@@ -20,6 +20,7 @@ body {
 }
 
 #card {
+    position: relative;  /* Important for z-index stacking */
     max-width: 99vw;
     max-height: 99vh;
     border: 1px solid #ccc;
@@ -51,16 +52,14 @@ body {
 #allCardsButton {
     font-size: 20px;
     padding: 10px 15px;
-    background-color: #008CBA;
+    background-color: #28a745;
     border: none;
     color: white;
     text-align: center;
     cursor: pointer;
     border-radius: 5px;
 }
-#allCardsButton {
-    background-color: #28a745; /* A slightly darker green */
-}
+
 #allCardsButton:hover {
     background-color: #1e7e34;
 }
@@ -68,14 +67,15 @@ body {
 #flip-card, #next-card, #prev-card {
     font-size: 20px;
     padding: 10px 15px;
-    background-color: violet;
+    background-color: lightpurple; /* Changed to light purple */
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
-#flip-card:hover, #next-card:hover, #prev-card:hover {
+#next-card:hover, #prev-card:hover {
     background-color: rgb(143, 41, 226);
     transform: scale(1.05);
 }
@@ -84,35 +84,7 @@ body {
     transform: rotateY(180deg);
 }
 
-/* Styles for the favorite button */
-#favoriteButton {
-    border: none;
-    background: none;
-    font-size: 36px;
-    cursor: pointer;
-    padding: 0;
-    color: gold;
-    transition: color 0.3s ease;
-}
-
-#favoriteButton.favorited {
-    color: orange;
-}
-
-#reviewFavorites {
-    font-size: 20px;
-    padding: 10px 15px;
-    background-color: #008CBA;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#reviewFavorites:hover {
-    background-color: #007bb5;
-}
-
+/* Fix for image stacking issues */
 #front, #back {
     position: absolute;
     width: 100%;
@@ -121,6 +93,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1; /* Ensure the front and back images are properly stacked */
 }
 
 #front {
@@ -130,9 +103,16 @@ body {
 #back {
     background-color: lightcoral;
     transform: rotateY(180deg);
+    z-index: 2; /* Back image is behind the front image */
 }
 
-#front img {
+#front img, #back img {
     max-width: 100%;
     max-height: 100%;
+}
+
+/* Fix z-index for buttons */
+.buttons, .favorite-buttons, .all-cards-button {
+    position: relative;
+    z-index: 10; /* Ensure buttons are above the card */
 }
