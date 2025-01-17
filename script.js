@@ -7,72 +7,45 @@ const flipCardButton = document.getElementById('flip-card');
 const favoriteButton = document.getElementById('favoriteButton');
 const reviewFavoritesButton = document.getElementById('reviewFavorites');
 const allCardsButton = document.getElementById('allCardsButton');
-const congratulationsMessage = document.getElementById('congratulationsMessage');
+const music = document.getElementById('background-music');
 
 let currentCardIndex = 0;
+let isFlipped = false;
+
 const cards = [
-    { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/fronts/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_1.png" },
-    { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/fronts/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_2.png" },
-    // Add more cards as needed
+  { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/fronts/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_1.png" },
+  { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/fronts/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_2.png" },
+  // Add more cards here as needed
 ];
 
 function loadCard(index) {
-    front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
-    back.innerHTML = `<img src="${cards[index].back}" alt="Back">`;
+  front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
+  back.innerHTML = `<img src="${cards[index].back}" alt="Back">`;
 }
 
-// Flip the card
-flipCardButton.addEventListener('click', () => {
-    card.classList.toggle('flipped');
-});
+function flipCard() {
+  isFlipped = !isFlipped;
+  card.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+}
 
-// Move to the next card
 nextCardButton.addEventListener('click', () => {
-    currentCardIndex = (currentCardIndex + 1) % cards.length;
-    loadCard(currentCardIndex);
-    card.classList.remove('flipped'); // Reset flip when moving to next card
-    checkCompletion();
+  currentCardIndex = (currentCardIndex + 1) % cards.length;
+  loadCard(currentCardIndex);
+  isFlipped = false; // Reset flip when moving to next card
+  flipCard(); // Reset flip state
 });
 
-// Move to the previous card
 prevCardButton.addEventListener('click', () => {
-    currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length; // Wrap around if index is less than 0
-    loadCard(currentCardIndex);
-    card.classList.remove('flipped'); // Reset flip when moving to previous card
-    checkCompletion();
+  currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
+  loadCard(currentCardIndex);
+  isFlipped = false; // Reset flip when moving to previous card
+  flipCard(); // Reset flip state
 });
 
-// Check if all cards have been reviewed
-function checkCompletion() {
-    if (currentCardIndex === cards.length - 1) {
-        congratulationsMessage.textContent = "Congratulations! You've finished all the flashcards!";
-        congratulationsMessage.style.display = 'block';
-    } else {
-        congratulationsMessage.style.display = 'none';
-    }
-}
-
-// Favorite button logic
-favoriteButton.addEventListener('click', () => {
-    favoriteButton.textContent = favoriteButton.textContent === '☆' ? '★' : '☆';
-});
-
-// Review favorites button
-reviewFavoritesButton.addEventListener('click', () => {
-    alert("Review favorites is not implemented yet.");
-});
-
-// Show all cards button
-allCardsButton.addEventListener('click', () => {
-    currentCardIndex = 0;
-    loadCard(currentCardIndex);
-    card.classList.remove('flipped'); // Reset flip when showing all cards
-    congratulationsMessage.style.display = 'none'; // Hide congratulations message
+flipCardButton.addEventListener('click', () => {
+  flipCard();
 });
 
 // Initialize with the first card
 loadCard(currentCardIndex);
-
-// Background music (optional feature)
-const music = document.getElementById('background-music');
 music.play();
