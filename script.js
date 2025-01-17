@@ -3,6 +3,17 @@ const front = document.getElementById('front');
 const back = document.getElementById('back');
 const nextCardButton = document.getElementById('next-card');
 const flipCardButton = document.getElementById('flip-card');
+const favoriteButton = document.getElementById('favoriteButton');
+const reviewFavoritesButton = document.getElementById('reviewFavorites');
+const allCardsButton = document.getElementById('allCardsButton'); // Add this button
+const congratulationsMessage = document.createElement('p');
+congratulationsMessage.textContent = "Congratulations! You've finished all the flashcards!";
+congratulationsMessage.style.display = 'none';
+congratulationsMessage.style.fontSize = '2em';
+congratulationsMessage.style.color = 'green';
+congratulationsMessage.style.textAlign='center';
+document.getElementById('card-container').appendChild(congratulationsMessage);
+
 const music = document.getElementById('background-music');
 let currentCardIndex = 0;
 
@@ -25,6 +36,36 @@ nextCardButton.addEventListener('click', () => {
 
 flipCardButton.addEventListener('click', () => {
   card.classList.toggle('flipped');
+});
+
+favoriteButton.addEventListener('click', () => {
+    images[currentCard].favorite = !images[currentCard].favorite;
+    favoriteButton.textContent = images[currentCard].favorite ? "★" : "☆";
+        if (images[currentCard].favorite) {
+        favoriteButton.classList.add("favorited");
+      } else {
+        favoriteButton.classList.remove("favorited");
+      }
+    showCard();
+});
+
+reviewFavoritesButton.addEventListener('click', () => {
+    favoriteWords = images.filter(card => card.favorite);
+    if (favoriteWords.length === 0) {
+        alert("No favorite words selected yet.");
+        return;
+    }
+    images = favoriteWords;
+    currentCard = 0;
+    isReviewingFavorites = true; // Set the flag
+    showCard();
+});
+
+allCardsButton.addEventListener('click', () => { // Add event listener for the new button
+    images = originalImages;// Restore the original images
+    currentCard = 0;
+    isReviewingFavorites = false;// Reset the flag
+    showCard();
 });
 
 music.play();
