@@ -1,8 +1,8 @@
 const card = document.getElementById('card');
 const front = document.getElementById('front');
 const back = document.getElementById('back');
-const nextCardButton = document.getElementById('next-card');
-const flipCardButton = document.getElementById('flip-card');
+const nextCardButton = document.getElementById('next-button');
+const flipCardButton = document.getElementById('flip-button');
 const favoriteButton = document.getElementById('favoriteButton');
 const reviewFavoritesButton = document.getElementById('reviewFavorites');
 const allCardsButton = document.getElementById('allCardsButton'); // Add this button
@@ -28,15 +28,18 @@ function loadCard(index) {
   back.innerHTML = `<img src="${cards[index].back}" alt="Back">`;
 }
 
+// Flip the card
+flipButton.addEventListener('click', () => {
+  card.classList.toggle('flipped');
+});
+
+// Move to the next card
 nextCardButton.addEventListener('click', () => {
   currentCardIndex = (currentCardIndex + 1) % cards.length;
   loadCard(currentCardIndex);
-  card.classList.remove('flipped'); // Reset flip
+  card.classList.remove('flipped'); // Reset flip when moving to next card
 });
 
-flipCardButton.addEventListener('click', () => {
-  card.classList.toggle('flipped');
-});
 
 favoriteButton.addEventListener('click', () => {
     images[currentCard].favorite = !images[currentCard].favorite;
