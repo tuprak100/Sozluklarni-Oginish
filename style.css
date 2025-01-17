@@ -68,6 +68,25 @@ body {
     background-color: #1e7e34;
 }
 
+#flip-button,
+#next-button {
+    font-size: 20px;
+    padding: 10px 15px;
+    background-color: violet;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#next-button:hover,
+#prev-button:hover {
+    background-color: rgb(143, 41, 226);
+    transform: scale(1.05);
+}
 #card.flipped {
     transform: rotateY(180deg);
 }
