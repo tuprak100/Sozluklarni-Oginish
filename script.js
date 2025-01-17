@@ -6,8 +6,8 @@ const flipCardButton = document.getElementById('flip-card');
 const music = document.getElementById('background-music');
 let currentCardIndex = 0;
 const cards = [
-  { front: "images/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_1.png" },
-  { front: "images/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_2.png" },
+  { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_1.png" },
+  { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_2.png" },
   // ... more cards
 ];
 
