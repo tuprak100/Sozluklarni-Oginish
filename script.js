@@ -71,5 +71,8 @@ allCardsButton.addEventListener('click', () => { // Add event listener for the n
     showCard();
 });
 
+// Initialize with the first card
+loadCard(currentCardIndex);
+
 music.play();
 loadCard(currentCardIndex); // Load the first card
