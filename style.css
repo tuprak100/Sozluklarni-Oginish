@@ -35,17 +35,17 @@ body {
     margin-top: 20px;
 }
 
-.favorite-buttons{
+.favorite-buttons {
     display: flex;
     justify-content: center;
     gap: 30px;
     margin-top: 20px;
 }
 
-.all-cards-button { /* Styles for the new container */
+.all-cards-button {
     display: flex;
-    justify-content: center; /* Center the button horizontally */
-    margin-top: 20px; /* Add some top margin */
+    justify-content: center;
+    margin-top: 20px;
 }
 
 #allCardsButton {
@@ -55,55 +55,46 @@ body {
     border: none;
     color: white;
     text-align: center;
-    text-decoration: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s;
 }
 
-#allCardsButton {
-    background-color: #28a745; /* A slightly darker green */
-}
 #allCardsButton:hover {
     background-color: #1e7e34;
 }
 
-#flip-button,
-#next-button {
+#flip-card, #next-card, #prev-card {
     font-size: 20px;
     padding: 10px 15px;
     background-color: violet;
     border: none;
     color: white;
-    text-align: center;
-    text-decoration: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s;
 }
 
-#next-button:hover,
-#prev-button:hover {
+#flip-card:hover, #next-card:hover, #prev-card:hover {
     background-color: rgb(143, 41, 226);
     transform: scale(1.05);
 }
+
 #card.flipped {
     transform: rotateY(180deg);
 }
 
-/* Styles for the favorite button (STAR) */
+/* Styles for the favorite button */
 #favoriteButton {
     border: none;
     background: none;
     font-size: 36px;
     cursor: pointer;
     padding: 0;
-    color: gold; /* Gold color for the empty star */
+    color: gold;
     transition: color 0.3s ease;
 }
 
 #favoriteButton.favorited {
-    color: orange; /* Orange color for the filled star */
+    color: orange;
 }
 
 #reviewFavorites {
@@ -112,17 +103,12 @@ body {
     background-color: #008CBA;
     border: none;
     color: white;
-    text-align: center;
-    text-decoration: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s;
-    margin-top: 20px;
 }
 
 #reviewFavorites:hover {
     background-color: #007bb5;
-    transform: scale(1.05);
 }
 
 #front, #back {
@@ -131,9 +117,8 @@ body {
     height: 100%;
     backface-visibility: hidden;
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center;     /* Center content vertically */
-    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
 }
 
 #front {
@@ -144,7 +129,8 @@ body {
     background-color: lightcoral;
     transform: rotateY(180deg);
 }
+
 #front img {
-    max-width: 100%; /* Ensure images fit within the card */
+    max-width: 100%;
     max-height: 100%;
 }
