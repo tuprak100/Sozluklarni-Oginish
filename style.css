@@ -6,41 +6,46 @@ body {
     min-height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
+    justify-content: center; /* Center the content vertically */
+    padding: 20px; /* Add some padding to the body */
 }
 
 #card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
-    border: 1px solid #ddd;
-    padding: 10px;
+    width: 100%;
+    max-width: 600px; /* Set max-width to ensure it's not too wide */
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Add padding to container */
+    border-radius: 10px; /* Add border-radius for smooth corners */
+    text-align: center; /* Center text inside the container */
 }
 
-#card {
-    position: relative;  /* Important for z-index stacking */
-    max-width: 99vw;
-    max-height: 99vh;
-    border: 1px solid #ccc;
+#flashcard {
+    width: 100%;
+    max-width: 500px; /* Maximum size for flashcard */
+    max-height: 400px; /* Limit max height */
     object-fit: contain;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 20px; /* Add margin below flashcard */
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 20px; /* Reduce gap between buttons */
+    margin-top: 10px; /* Add top margin */
+    width: 100%; /* Ensure buttons take up full width of container */
 }
 
 .favorite-buttons {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 20px; /* Adjust spacing between favorite and review buttons */
+    margin-top: 10px;
 }
 
 .all-cards-button {
@@ -51,23 +56,25 @@ body {
 
 #allCardsButton {
     font-size: 20px;
-    padding: 10px 15px;
-    background-color: #28a745;
+    padding: 10px 20px;
+    background-color: #28a745; /* Slightly darker green */
     border: none;
     color: white;
     text-align: center;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
 #allCardsButton:hover {
-    background-color: #1e7e34;
+    background-color: #1e7e34; /* Darker green on hover */
 }
 
-#flip-card, #next-card, #prev-card {
+#next-button,
+#prev-button {
     font-size: 20px;
-    padding: 10px 15px;
-    background-color: lightpurple; /* Changed to light purple */
+    padding: 10px 20px;
+    background-color: lightpurple; /* Placeholder for light purple color */
     border: none;
     color: white;
     cursor: pointer;
@@ -75,44 +82,45 @@ body {
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
-#next-card:hover, #prev-card:hover {
-    background-color: rgb(143, 41, 226);
+#next-button:hover,
+#prev-button:hover {
+    background-color: rgb(143, 41, 226); /* Violet color on hover */
     transform: scale(1.05);
 }
 
-#card.flipped {
-    transform: rotateY(180deg);
+#card-number {
+    margin-top: 15px;
+    font-size: 1.2em;
 }
 
-/* Fix for image stacking issues */
-#front, #back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1; /* Ensure the front and back images are properly stacked */
+/* Styles for the favorite button (STAR) */
+#favoriteButton {
+    border: none;
+    background: none;
+    font-size: 36px;
+    cursor: pointer;
+    padding: 0;
+    color: gold; /* Gold color for the empty star */
+    transition: color 0.3s ease;
 }
 
-#front {
-    background-color: lightblue;
+#favoriteButton.favorited {
+    color: orange; /* Orange color for the filled star */
 }
 
-#back {
-    background-color: lightcoral;
-    transform: rotateY(180deg);
-    z-index: 2; /* Back image is behind the front image */
+#reviewFavorites {
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
-#front img, #back img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-/* Fix z-index for buttons */
-.buttons, .favorite-buttons, .all-cards-button {
-    position: relative;
-    z-index: 10; /* Ensure buttons are above the card */
+#reviewFavorites:hover {
+    background-color: #007bb5;
+    transform: scale(1.05);
 }
