@@ -1,6 +1,7 @@
 const card = document.getElementById('card');
 const front = document.getElementById('front');
 const back = document.getElementById('back');
+const cardNumberDisplay = document.getElementById('card-number');
 const nextCardButton = document.getElementById('next-card-button'); // Corrected IDs
 const prevCardButton = document.getElementById('prev-card-button');
 const flipCardButton = document.getElementById('flip-card-button');
