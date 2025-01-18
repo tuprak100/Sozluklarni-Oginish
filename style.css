@@ -17,17 +17,16 @@ body {
     padding: 10px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 500px;
-    height: 500px;
-    /* height: 500px; Remove fixed height */
+    width: 500px; /* Or whatever width you want */
+    height: 500px; /* Or whatever height you want */
 }
 
 #card {
-    width: 100%;
-    aspect-ratio: 1/1;
+    width: 100%; /* Card takes full width of container */
+    height: 100%; /* Card takes full height of container */
+    position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    margin-bottom: 10px;
 }
 
 #card.flipped {
@@ -53,7 +52,7 @@ body {
 #back img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain;
+    object-fit: contain; /* Key: Image scales to fit */
 }
 
 #front {
@@ -69,9 +68,8 @@ body {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
-
 
 #prev-card-button,
 #flip-card-button,
