@@ -17,7 +17,10 @@ body {
     padding: 10px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    
+    position: relative;
+    width: 500px;
+    height: 400px;
+    perspective: 1000px;
 }
 
 #card {
@@ -93,6 +96,11 @@ body {
 #next-card-button:hover {
     background-color: rgb(143, 41, 226);
     transform: scale(1.05);
+}
+
+#card-number {
+    margin-top: 15px;
+    font-size: 1.2em;
 }
 
 .favorite-button{
