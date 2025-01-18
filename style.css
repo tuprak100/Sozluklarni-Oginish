@@ -1,33 +1,127 @@
 body {
-  display: flex; /* Use flexbox for layout */
-  justify-content: center; /* Center the content horizontally */
-  align-items: center; /* Center the content vertically */
-  min-height: 100vh; /* Set minimum height for full viewport */
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
-#card {
-  width: 300px; /* Adjust card width */
-  height: 400px; /* Adjust card height */
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  margin: 0 10px; /* Add some margin */
-  text-align: center; /* Center card content */
-  position: relative; /* Needed for z-index */
+#card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#flashcard {
+    max-width: 99vw;
+    max-height: 99vh;
+    border: 1px solid #ccc;
+    object-fit: contain;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.favorite-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.all-cards-button { /* Styles for the new container */
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Add some top margin */
+}
+
+#allCardsButton {
+    font-size: 20px;
+    padding: 10px 15px;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#allCardsButton {
+    background-color: #28a745; /* A slightly darker green */
+}
+#allCardsButton:hover {
+    background-color: #1e7e34;
 }
 
 #front, #back {
   padding: 20px; /* Add some padding */
 }
 
-.next-card-button, .flip-card-button {
-  padding: 10px 20px;
-  border: 1px solid black;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 10px; /* Add some margin */
-  position: absolute; /* Needed for z-index */
-  bottom: 10px; /* Position buttons at the bottom */
-  z-index: 1; /* Bring buttons to the front */
+#prev-card-button, 
+#flip-card-button,
+#next-card-button {
+    font-size: 20px;
+    padding: 10px 15px;
+    background-color: violet;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#prev-button:hover,
+#flip-card-button:hover,
+#next-card-button:hover {
+    background-color: rgb(143, 41, 226);
+    transform: scale(1.05);
+}
+
+/* Styles for the favorite button (STAR) */
+#favoriteButton {
+    border: none;
+    background: none;
+    font-size: 36px;
+    cursor: pointer;
+    padding: 0;
+    color: gold; /* Gold color for the empty star */
+    transition: color 0.3s ease;
+}
+
+#favoriteButton.favorited {
+    color: orange; /* Orange color for the filled star */
+}
+
+#reviewFavorites {
+    font-size: 20px;
+    padding: 10px 15px;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 20px;
+}
+
+#reviewFavorites:hover {
+    background-color: #007bb5;
+    transform: scale(1.05);
 }
