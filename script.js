@@ -14,39 +14,37 @@ const cards = [];
 const repoUrl = "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs"; // Base URL for back images
 
 for (let i = 1; i <= numCards; i++) {
-    cards.push({
-        front: `images/fronts/front_${i}.png`,
-        back: `${repoUrl}/back_${i}.png` // Use the raw URL
-    });
+  cards.push({
+    front: `images/fronts/front_${i}.png`,
+    back: `${repoUrl}/back_${i}.png` // Use the raw URL
+  });
 }
 
 function loadCard(index) {
-    front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
-    cardNumberDisplay.textContent = `Card ${currentCard + 1} of ${images.length}`;
-    congratulationsMessage.style.display = 'none';
-    favoriteButton.textContent = images[currentCard].favorite ? "★" : "☆";
-    fetch(cards[index].back)
-        .then(response => response.blob())
-        .then(data => {
-            const imageUrl = URL.createObjectURL(data);
-            back.innerHTML = `<img src="${imageUrl}" alt="Back">`;
-        });
+  front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
+  cardNumberDisplay.textContent = `Card ${currentCardIndex + 1} of ${cards.length}`; // Use cards.length for total cards
+  fetch(cards[index].back)
+    .then(response => response.blob())
+    .then(data => {
+      const imageUrl = URL.createObjectURL(data);
+      back.innerHTML = `<img src="${imageUrl}" alt="Back">`;
+    });
 }
 
 nextCardButton.addEventListener('click', () => {
-    currentCardIndex = (currentCardIndex + 1) % cards.length; // Use modulo for looping
-    loadCard(currentCardIndex);
-    card.classList.remove('flipped');
+  currentCardIndex = (currentCardIndex + 1) % cards.length; // Use modulo for looping
+  loadCard(currentCardIndex);
+  card.classList.remove('flipped');
 });
 
 prevCardButton.addEventListener('click', () => {
-    currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length; // Corrected previous card logic.
-    loadCard(currentCardIndex);
-    card.classList.remove('flipped');
+  currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length; // Corrected previous card logic.
+  loadCard(currentCardIndex);
+  card.classList.remove('flipped');
 });
 
 flipCardButton.addEventListener('click', () => {
-    card.classList.toggle('flipped');
+  card.classList.toggle('flipped');
 });
 
 music.play();
