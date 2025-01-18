@@ -22,6 +22,9 @@ for (let i = 1; i <= numCards; i++) {
 
 function loadCard(index) {
     front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
+    cardNumberDisplay.textContent = `Card ${currentCard + 1} of ${images.length}`;
+    congratulationsMessage.style.display = 'none';
+    favoriteButton.textContent = images[currentCard].favorite ? "★" : "☆";
     fetch(cards[index].back)
         .then(response => response.blob())
         .then(data => {
