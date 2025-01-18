@@ -24,11 +24,11 @@ body {
 }
 
 #card {
-    width: 99%; /* Reduced width */
-    height: 99%; /* Reduced height */
-    position: absolute; /* Maintain absolute positioning */
-    top: 1%;      /* Center vertically */
-    left: 1%;     /* Center horizontally */
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
@@ -49,14 +49,14 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    overflow: hidden; /* Prevents images from overflowing */
+    overflow: hidden;
 }
 
 #front img,
 #back img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Ensures image fits within the card */
+    object-fit: contain;
 }
 
 #front {
@@ -75,4 +75,82 @@ body {
     margin-top: 20px;
 }
 
-/* ... (rest of your CSS) */
+#prev-card-button,
+#flip-card-button,
+#next-card-button {
+    font-size: 20px;
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#prev-card-button {
+    background-color: violet;
+}
+
+#flip-card-button {
+    background-color: purple;
+}
+
+#next-card-button {
+    background-color: orange;
+}
+
+#prev-card-button:hover,
+#flip-card-button:hover,
+#next-card-button:hover {
+    background-color: rgb(143, 41, 226);
+    transform: scale(1.05);
+}
+
+#card-number {
+    margin-top: 15px;
+    font-size: 1.2em;
+    text-align: center; /* Center the card number */
+}
+
+.favorite-button,
+.all-cards-button { /* Combined styles for button containers*/
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#favoriteButton {
+    border: none;
+    background: none;
+    font-size: 36px;
+    cursor: pointer;
+    padding: 0;
+    color: gold;
+    transition: color 0.3s ease;
+}
+
+#favoriteButton.favorited {
+    color: orange;
+}
+
+#reviewFavorites,
+#allCardsButton { /* Combined styles for buttons */
+    font-size: 20px;
+    padding: 10px 15px;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#reviewFavorites:hover,
+#allCardsButton:hover {
+    background-color: #007bb5;
+    transform: scale(1.05);
+}
