@@ -19,17 +19,14 @@ body {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     width: 500px;
     /* height: 500px; Remove fixed height */
-    perspective: 1000px;
 }
 
 #card {
     width: 90%;
-    /* height: 90%; Remove fixed height */
-    aspect-ratio: 1/1; /* Maintain aspect ratio */
-    position: relative; /* No longer absolute */
+    aspect-ratio: 1/1;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    margin-bottom: 20px; /* Add some space below the card */
+    margin-bottom: 20px;
 }
 
 #card.flipped {
@@ -71,8 +68,9 @@ body {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-bottom: 20px; /* Add margin below buttons */
+    margin-bottom: 20px;
 }
+
 
 #prev-card-button,
 #flip-card-button,
