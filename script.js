@@ -5,6 +5,10 @@ const cardNumberDisplay = document.getElementById('card-number');
 const nextCardButton = document.getElementById('next-card-button'); // Corrected IDs
 const prevCardButton = document.getElementById('prev-card-button');
 const flipCardButton = document.getElementById('flip-card-button');
+const favoriteButton = document.getElementById('favoriteButton');
+const reviewFavoritesButton = document.getElementById('reviewFavorites');
+const allCardsButton = document.getElementById('allCardsButton'); // Added
+let isFavorited = false; // Track favorite state
 const music = document.getElementById('background-music');
 let currentCardIndex = 0;
 
@@ -45,6 +49,22 @@ prevCardButton.addEventListener('click', () => {
 
 flipCardButton.addEventListener('click', () => {
   card.classList.toggle('flipped');
+});
+
+favoriteButton.addEventListener('click', () => {
+  isFavorited = !isFavorited;
+  favoriteButton.classList.toggle('favorited', isFavorited); // Toggle the class
+  console.log("Card favorited:", isFavorited); // For testing
+});
+
+reviewFavoritesButton.addEventListener('click', () => {
+  console.log("Reviewing favorites..."); // Placeholder for review logic
+  // Add your logic to display only favorited cards here
+});
+
+allCardsButton.addEventListener('click', () => {
+  // Add your logic to show all cards here (optional)
+  console.log("Show all cards button clicked!");
 });
 
 music.play();
