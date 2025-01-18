@@ -9,14 +9,14 @@ let currentCardIndex = 0;
 
 // Corrected cards array to use correct image names and full paths
 const cards = [
-    { front: "images/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_1.png" },
-    { front: "images/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_2.png" },
-    { front: "images/front_3.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_3.png" },
-    { front: "images/front_4.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_4.png" },
-    { front: "images/front_5.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_5.png" },
-    { front: "images/front_6.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_6.png" },
-    { front: "images/front_7.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_7.png" },
-    { front: "images/front_8.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_8.png" },
+    { front: "images/fronts/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_1.png" },
+    { front: "images/fronts/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_2.png" },
+    { front: "images/fronts/front_3.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_3.png" },
+    { front: "images/fronts/front_4.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_4.png" },
+    { front: "images/fronts/front_5.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_5.png" },
+    { front: "images/fronts/front_6.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_6.png" },
+    { front: "images/fronts/front_7.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_7.png" },
+    { front: "images/fronts/front_8.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_8.png" },
 ];
 
 function loadCard(index) {
