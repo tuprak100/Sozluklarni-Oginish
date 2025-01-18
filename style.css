@@ -24,11 +24,11 @@ body {
 }
 
 #card {
-    width: 90%;
-    height: 90%;
+    width: 99%;
+    height: 99%;
     position: absolute;
-    top: 5%;
-    left: 5%;
+    top: 1%;
+    left: 1%;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
