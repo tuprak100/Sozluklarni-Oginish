@@ -14,7 +14,7 @@ const repoUrl = "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish
 
 for (let i = 1; i <= numCards; i++) {
     cards.push({
-        front: `fronts/front_${i}.png`,
+        front: `images/fronts/front_${i}.png`,
         back: `${repoUrl}/back_${i}.png` // Use the raw URL
     });
 }
