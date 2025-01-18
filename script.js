@@ -1,51 +1,49 @@
 const card = document.getElementById('card');
 const front = document.getElementById('front');
 const back = document.getElementById('back');
-const nextCardButton = document.getElementById('next-card');
-const prevCardButton = document.getElementById('prev-card');
-const flipCardButton = document.getElementById('flip-card');
-const favoriteButton = document.getElementById('favoriteButton');
-const reviewFavoritesButton = document.getElementById('reviewFavorites');
-const allCardsButton = document.getElementById('allCardsButton');
+const nextCardButton = document.getElementById('next-card-button'); // Corrected IDs
+const prevCardButton = document.getElementById('prev-card-button');
+const flipCardButton = document.getElementById('flip-card-button');
 const music = document.getElementById('background-music');
-
 let currentCardIndex = 0;
-let isFlipped = false;
 
+// Corrected cards array to use correct image names and full paths
 const cards = [
-  { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/fronts/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_1.png" },
-  { front: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/fronts/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_2.png" },
-  // Add more cards here as needed
+    { front: "images/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_1.png" },
+    { front: "images/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_2.png" },
+    { front: "images/front_3.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_3.png" },
+    { front: "images/front_4.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_4.png" },
+    { front: "images/front_5.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_5.png" },
+    { front: "images/front_6.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_6.png" },
+    { front: "images/front_7.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_7.png" },
+    { front: "images/front_8.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/back_8.png" },
 ];
 
 function loadCard(index) {
-  front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
-  back.innerHTML = `<img src="${cards[index].back}" alt="Back">`;
-}
-
-function flipCard() {
-  isFlipped = !isFlipped;
-  card.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+    front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
+    fetch(cards[index].back)
+        .then(response => response.blob())
+        .then(data => {
+            const imageUrl = URL.createObjectURL(data);
+            back.innerHTML = `<img src="${imageUrl}" alt="Back">`;
+        });
 }
 
 nextCardButton.addEventListener('click', () => {
-  currentCardIndex = (currentCardIndex + 1) % cards.length;
-  loadCard(currentCardIndex);
-  isFlipped = false; // Reset flip when moving to next card
-  flipCard(); // Reset flip state
+    currentCardIndex = (currentCardIndex + 1) % cards.length; // Use modulo for looping
+    loadCard(currentCardIndex);
+    card.classList.remove('flipped');
 });
 
 prevCardButton.addEventListener('click', () => {
-  currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
-  loadCard(currentCardIndex);
-  isFlipped = false; // Reset flip when moving to previous card
-  flipCard(); // Reset flip state
+    currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length; // Corrected previous card logic.
+    loadCard(currentCardIndex);
+    card.classList.remove('flipped');
 });
 
 flipCardButton.addEventListener('click', () => {
-  flipCard();
+    card.classList.toggle('flipped');
 });
 
-// Initialize with the first card
-loadCard(currentCardIndex);
 music.play();
+loadCard(currentCardIndex);
