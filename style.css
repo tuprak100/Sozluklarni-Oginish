@@ -24,9 +24,11 @@ body {
 }
 
 #card {
-    width: 498px;
-    height: 498px;
-    position: relative;
+    width: 99%; /* Reduced width */
+    height: 99%; /* Reduced height */
+    position: absolute; /* Maintain absolute positioning */
+    top: 1%;      /* Center vertically */
+    left: 1%;     /* Center horizontally */
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
@@ -47,6 +49,14 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    overflow: hidden; /* Prevents images from overflowing */
+}
+
+#front img,
+#back img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures image fits within the card */
 }
 
 #front {
@@ -55,7 +65,7 @@ body {
 
 #back {
     background-color: white;
-    transform: rotateY(180deg); /* Initially flipped */
+    transform: rotateY(180deg);
 }
 
 .buttons {
@@ -65,114 +75,4 @@ body {
     margin-top: 20px;
 }
 
-#prev-card-button,
-#flip-card-button,
-#next-card-button { /* Combined styles for buttons */
-    font-size: 20px;
-    padding: 10px 15px;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s;
-}
-
-#prev-card-button {
-    background-color: violet;
-}
-
-#flip-card-button {
-    background-color: purple;
-}
-
-#next-card-button {
-    background-color: orange;
-}
-
-#prev-card-button:hover,
-#flip-card-button:hover,
-#next-card-button:hover {
-    background-color: rgb(143, 41, 226);
-    transform: scale(1.05);
-}
-
-#card-number {
-    margin-top: 15px;
-    font-size: 1.2em;
-}
-
-.favorite-button{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.all-cards-button { /* Styles for the new container */
-    display: flex;
-    justify-content: center; /* Center the button horizontally */
-    margin-top: 20px; /* Add some top margin */
-}
-
-#allCardsButton {
-    font-size: 20px;
-    padding: 10px 15px;
-    background-color: #008CBA;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s;
-}
-
-#allCardsButton {
-    background-color: #28a745; /* A slightly darker green */
-}
-#allCardsButton:hover {
-    background-color: #1e7e34;
-}
-
-#prev-button:hover,
-#flip-card-button:hover,
-#next-card-button:hover {
-    background-color: rgb(143, 41, 226);
-    transform: scale(1.05);
-}
-
-/* Styles for the favorite button (STAR) */
-#favoriteButton {
-    border: none;
-    background: none;
-    font-size: 36px;
-    cursor: pointer;
-    padding: 0;
-    color: gold; /* Gold color for the empty star */
-    transition: color 0.3s ease;
-}
-
-#favoriteButton.favorited {
-    color: orange; /* Orange color for the filled star */
-}
-
-#reviewFavorites {
-    font-size: 20px;
-    padding: 10px 15px;
-    background-color: #008CBA;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s;
-    margin-top: 20px;
-}
-
-#reviewFavorites:hover {
-    background-color: #007bb5;
-    transform: scale(1.05);
-}
+/* ... (rest of your CSS) */
