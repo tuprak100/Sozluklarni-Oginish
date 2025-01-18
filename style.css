@@ -50,11 +50,11 @@ body {
 }
 
 #front {
-    background-color: lightblue;
+    background-color: white;
 }
 
 #back {
-    background-color: lightcoral;
+    background-color: white;
     transform: rotateY(180deg); /* Initially flipped */
 }
 
@@ -88,7 +88,7 @@ body {
 }
 
 #next-card-button {
-    background-color: pink;
+    background-color: orange;
 }
 
 #prev-card-button:hover,
@@ -98,7 +98,7 @@ body {
     transform: scale(1.05);
 }
 
-.favorite-buttons{
+.favorite-button{
     display: flex;
     justify-content: center;
     gap: 30px;
