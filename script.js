@@ -8,16 +8,16 @@ const music = document.getElementById('background-music');
 let currentCardIndex = 0;
 
 // Corrected cards array to use correct image names and full paths
-const cards = [
-    { front: "images/fronts/front_1.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_1.png" },
-    { front: "images/fronts/front_2.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_2.png" },
-    { front: "images/fronts/front_3.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_3.png" },
-    { front: "images/fronts/front_4.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_4.png" },
-    { front: "images/fronts/front_5.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_5.png" },
-    { front: "images/fronts/front_6.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_6.png" },
-    { front: "images/fronts/front_7.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_7.png" },
-    { front: "images/fronts/front_8.png", back: "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs/back_8.png" },
-];
+const numCards = 8;
+const cards = [];
+const repoUrl = "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs"; // Base URL for back images
+
+for (let i = 1; i <= numCards; i++) {
+    cards.push({
+        front: `fronts/front_${i}.png`,
+        back: `${repoUrl}/back_${i}.png` // Use the raw URL
+    });
+}
 
 function loadCard(index) {
     front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
