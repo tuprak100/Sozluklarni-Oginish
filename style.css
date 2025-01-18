@@ -18,15 +18,16 @@ body {
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     width: 500px;
+    height: 500px;
     /* height: 500px; Remove fixed height */
 }
 
 #card {
-    width: 90%;
+    width: 100%;
     aspect-ratio: 1/1;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #card.flipped {
