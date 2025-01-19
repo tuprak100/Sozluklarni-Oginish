@@ -50,9 +50,9 @@ body {
 
 #front img,
 #back img {
-    width: 100%; /* Image takes full width */
+    width: 99%; /* Image takes full width */
     height: auto; /* Height adjusts proportionally */
-    object-fit: cover; /* Image covers the entire area */
+    object-fit: contain; /* Image covers the entire area */
     object-position: top center; /* Align to top center */
 }
 
