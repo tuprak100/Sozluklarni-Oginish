@@ -50,10 +50,10 @@ body {
 
 #front img,
 #back img {
-    width: 98%; /* Image takes full width */
-    height: auto; /* Height adjusts proportionally */
+    width: 100%; /* Image takes full width */
+    height: 100%; /* Height adjusts proportionally */
     object-fit: contain; /* Image covers the entire area */
-    object-position: top center; /* Align to top center */
+    object-position: center; /* Align to top center */
 }
 
 #front {
