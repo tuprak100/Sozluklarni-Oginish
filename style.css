@@ -22,8 +22,8 @@ body {
 }
 
 #card {
-    width: 100%; /* Card takes full width of container */
-    height: 100%; /* Card takes full height of container */
+    width: 98%; /* Card takes full width of container */
+    height: 98%; /* Card takes full height of container */
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
@@ -50,7 +50,7 @@ body {
 
 #front img,
 #back img {
-    width: 99%; /* Image takes full width */
+    width: 98%; /* Image takes full width */
     height: auto; /* Height adjusts proportionally */
     object-fit: contain; /* Image covers the entire area */
     object-position: top center; /* Align to top center */
