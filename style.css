@@ -22,8 +22,8 @@ body {
 }
 
 #card {
-    width: 98%; /* Card takes full width of container */
-    height: 98%; /* Card takes full height of container */
+    width: 99%; /* Card takes full width of container */
+    height: 99%; /* Card takes full height of container */
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
