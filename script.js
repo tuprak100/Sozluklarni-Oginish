@@ -8,7 +8,6 @@ const flipCardButton = document.getElementById('flip-card-button');
 const favoriteButton = document.getElementById('favoriteButton');
 const reviewFavoritesButton = document.getElementById('reviewFavorites');
 const allCardsButton = document.getElementById('allCardsButton');
-const music = document.getElementById('background-music');
 
 let currentCardIndex = 0;
 let numCards = 19;
@@ -34,7 +33,7 @@ function loadCard(index) {
         });
     favoriteButton.classList.toggle('favorited', cards[index].isFavorited);
      }
-    const music = document.getElementById('background-music');
+    const cardsound = document.getElementById('background-music');
     cardSound.loop = true;
     cardSound.play();
 }
@@ -85,3 +84,4 @@ allCardsButton.addEventListener('click', () => {
     loadCard(currentCardIndex);
 });
 
+showCard();
