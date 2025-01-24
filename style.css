@@ -17,7 +17,7 @@ body {
     padding: 10px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 600px;
+    /* width: 600px;
     /* height: 500px; Consider removing fixed height for better responsiveness */
 }
 
@@ -27,7 +27,7 @@ body {
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    margin-bottom: 20px; /* Space below the card */
+    /* margin-bottom: 20px; /* Space below the card */
 }
 
 #card.flipped {
@@ -70,15 +70,16 @@ body {
     display: flex;
     flex-direction: column; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
-    gap: 20px; /* Space between button groups */
+    gap: 30px; /* Space between button groups */
     margin-top: 20px; /* Space from card */
 }
 
-.button-group { /* NEW: Group similar buttons */
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+
+#card-number {
+    margin-top: 15px;
+    font-size: 1.2em;
 }
+
 
 #prev-card-button,
 #flip-card-button,
@@ -117,14 +118,19 @@ body {
     background-color: #008CBA;
 }
 
+/* Styles for the favorite button (STAR) */
 #favoriteButton {
+    border: none;
     background: none;
     font-size: 36px;
-    color: gold;
+    cursor: pointer;
+    padding: 0;
+    color: gold; /* Gold color for the empty star */
+    transition: color 0.3s ease;
 }
 
 #favoriteButton.favorited {
-    color: orange;
+    color: orange; /* Orange color for the filled star */
 }
 
 #prev-card-button:hover,
@@ -136,8 +142,3 @@ body {
     transform: scale(1.05);
 }
 
-#card-number {
-    margin-top: 15px;
-    font-size: 1.2em;
-    text-align: center;
-}
