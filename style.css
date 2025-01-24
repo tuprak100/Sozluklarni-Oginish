@@ -17,17 +17,17 @@ body {
     padding: 10px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    /* width: 500px;
     /* height: 500px; Consider removing fixed height for better responsiveness */
 }
 
 #card {
-    width: 100%;
-    aspect-ratio: 1/1; /* Maintain square aspect ratio */
+    width: 99%;
+    /*aspect-ratio: 1/1; /* Maintain square aspect ratio */
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    /* margin-bottom: 20px; /* Space below the card */
+    margin-bottom: 3px; /* Space below the card */
 }
 
 #card.flipped {
@@ -66,6 +66,10 @@ body {
     transform: rotateY(180deg);
 }
 
+#card-number {
+    margin-top: 15px;
+    font-size: 1.2em;
+}
 .button-container { /* NEW: Container for all buttons */
     display: flex;
     flex-direction: column; /* Stack buttons vertically */
@@ -79,10 +83,6 @@ body {
     gap: 30px;
 }
 
-#card-number {
-    margin-top: 15px;
-    font-size: 1.2em;
-}
 #prev-card-button,
 #flip-card-button,
 #next-card-button,
