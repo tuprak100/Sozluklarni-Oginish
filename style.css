@@ -115,13 +115,13 @@ body {
 .all-cards-button { /* Combined styles for button containers*/
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #favoriteButton {
     border: none;
     background: none;
-    font-size: 36px;
+    font-size: 46px;
     cursor: pointer;
     padding: 0;
     color: gold;
@@ -142,7 +142,7 @@ body {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
