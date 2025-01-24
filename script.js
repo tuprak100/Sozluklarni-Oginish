@@ -18,43 +18,23 @@ for (let i = 1; i <= numCards; i++) {
     cards.push({
         front: `images/fronts/front_${i}.png`,
         back: `${repoUrl}/back_${i}.png`,
-        isFavorited: false // Add a property to track favorited cards
+        isFavorited: false
     });
 }
 
 function loadCard(index) {
-    // Front image path
     front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
     cardNumberDisplay.textContent = `Card ${index + 1} of ${cards.length}`;
     
-    // Back image fetch with error handling
     fetch(cards[index].back)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to load back image');
-            }
-            return response.blob();
-        })
+        .then(response => response.blob())
         .then(data => {
             const imageUrl = URL.createObjectURL(data);
             back.innerHTML = `<img src="${imageUrl}" alt="Back">`;
-        })
-        .catch(error => {
-            console.error(error);
-            back.innerHTML = `<p>Error loading back image</p>`; // Fallback text
         });
 
-    // Toggle favorite state
     favoriteButton.classList.toggle('favorited', cards[index].isFavorited);
 }
-
-const cardSound = document.getElementById('background-music');
-
-// Ensure the audio plays after the page has loaded or through user interaction
-cardSound.loop = true;
-cardSound.play().catch((error) => {
-    console.error('Failed to play music:', error);
-});
 
 nextCardButton.addEventListener('click', () => {
     currentCardIndex = (currentCardIndex + 1) % cards.length;
@@ -73,14 +53,14 @@ flipCardButton.addEventListener('click', () => {
 });
 
 favoriteButton.addEventListener('click', () => {
-    cards[currentCardIndex].isFavorited = !cards[currentCardIndex].isFavorited; // Update the card's favorite status
-    favoriteButton.classList.toggle('favorited', cards[currentCardIndex].isFavorited); // Toggle the class
+    cards[currentCardIndex].isFavorited = !cards[currentCardIndex].isFavorited;
+    favoriteButton.classList.toggle('favorited', cards[currentCardIndex].isFavorited);
 });
 
 reviewFavoritesButton.addEventListener('click', () => {
     const favoriteCards = cards.filter(card => card.isFavorited);
     if (favoriteCards.length > 0) {
-        currentCardIndex = cards.indexOf(favoriteCards[0])
+        currentCardIndex = cards.indexOf(favoriteCards[0]);
         loadCard(currentCardIndex);
         numCards = favoriteCards.length;
         cards.length = 0;
@@ -95,9 +75,11 @@ allCardsButton.addEventListener('click', () => {
         cards.push({
             front: `images/fronts/front_${i}.png`,
             back: `${repoUrl}/back_${i}.png`,
-            isFavorited: false // Add a property to track favorited cards
+            isFavorited: false
         });
     }
     currentCardIndex = 0;
     loadCard(currentCardIndex);
 });
+
+loadCard(currentCardIndex);
