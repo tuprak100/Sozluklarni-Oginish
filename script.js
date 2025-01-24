@@ -33,6 +33,10 @@ function loadCard(index) {
             back.innerHTML = `<img src="${imageUrl}" alt="Back">`;
         });
     favoriteButton.classList.toggle('favorited', cards[index].isFavorited);
+     }
+     const cardSound = document.getElementById('cardSound');
+    cardSound.loop = true;
+    cardSound.play();
 }
 
 nextCardButton.addEventListener('click', () => {
@@ -81,5 +85,3 @@ allCardsButton.addEventListener('click', () => {
     loadCard(currentCardIndex);
 });
 
-music.play();
-loadCard(currentCardIndex);
