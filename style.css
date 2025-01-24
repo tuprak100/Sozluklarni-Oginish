@@ -19,7 +19,7 @@ body {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     /*width: 600px;
     /*height: auto; /* Allow dynamic height based on content */
-    /* height: 500px; Consider removing fixed height for better responsiveness */
+    
 }
 
 #card {
@@ -28,7 +28,7 @@ body {
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    margin-bottom: 10px; /* Space below the card */
+    /* margin-bottom: 10px; /* Space below the card */
 }
 
 #card.flipped {
@@ -133,7 +133,7 @@ body {
 }
 
 #favoriteButton.favorited {
-    color: orange; /* Orange color for the filled star */
+    color: red; /* Orange color for the filled star */
 }
 
 #prev-card-button:hover,
