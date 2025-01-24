@@ -34,7 +34,7 @@ function loadCard(index) {
         });
     favoriteButton.classList.toggle('favorited', cards[index].isFavorited);
      }
-     const cardSound = document.getElementById('cardSound');
+    const music = document.getElementById('background-music');
     cardSound.loop = true;
     cardSound.play();
 }
