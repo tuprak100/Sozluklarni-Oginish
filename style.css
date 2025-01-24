@@ -17,9 +17,8 @@ body {
     padding: 10px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Change to 100% for responsiveness */
-    max-width: 500px; /* Max width to keep it under control */
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    width: 500px;
+    /* height: 500px; Consider removing fixed height for better responsiveness */
 }
 
 #card {
@@ -28,6 +27,7 @@ body {
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    /* margin-bottom: 20px; /* Space below the card */
 }
 
 #card.flipped {
@@ -66,36 +66,30 @@ body {
     transform: rotateY(180deg);
 }
 
-.button-container {
+.button-container { /* NEW: Container for all buttons */
     display: flex;
     flex-direction: column; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
-    gap: 15px; /* Space between buttons */
-    margin-top: 20px;
-    width: 100%; /* Ensures it stays inside the card */
+    gap: 30px; /* Space between button groups */
+    margin-top: 20px; /* Space from card */
 }
-
-.button-group {
+.button-group { /* NEW: Group similar buttons */
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    gap: 15px; /* Space between button groups */
-    width: 100%;
-    flex-wrap: wrap; /* Wrap buttons on smaller screens */
+    gap: 30px;
 }
 
 #card-number {
     margin-top: 15px;
     font-size: 1.2em;
 }
-
 #prev-card-button,
 #flip-card-button,
 #next-card-button,
 #favoriteButton,
 #reviewFavorites,
 #allCardsButton {
-    font-size: 16px; /* Slightly smaller font for better mobile readability */
+    font-size: 20px;
     padding: 10px 15px;
     border: none;
     color: white;
@@ -104,7 +98,6 @@ body {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s;
-    min-width: 100px; /* Set a minimum width for buttons */
 }
 
 #prev-card-button {
@@ -127,18 +120,19 @@ body {
     background-color: #008CBA;
 }
 
+/* Styles for the favorite button (STAR) */
 #favoriteButton {
     border: none;
     background: none;
     font-size: 36px;
     cursor: pointer;
     padding: 0;
-    color: gold;
+    color: gold; /* Gold color for the empty star */
     transition: color 0.3s ease;
 }
 
 #favoriteButton.favorited {
-    color: orange;
+    color: orange; /* Orange color for the filled star */
 }
 
 #prev-card-button:hover,
@@ -148,25 +142,4 @@ body {
 #reviewFavorites:hover {
     background-color: rgb(143, 41, 226);
     transform: scale(1.05);
-}
-
-/* Responsive adjustments for small screens */
-@media (max-width: 600px) {
-    #prev-card-button,
-    #flip-card-button,
-    #next-card-button,
-    #favoriteButton,
-    #reviewFavorites,
-    #allCardsButton {
-        font-size: 14px; /* Reduce font size */
-        padding: 8px 12px; /* Adjust padding */
-    }
-
-    .button-container {
-        gap: 10px; /* Reduced space between buttons */
-    }
-
-    .button-group {
-        flex-direction: column; /* Stack buttons vertically on small screens */
-    }
 }
