@@ -69,15 +69,19 @@ reviewFavoritesButton.addEventListener('click', () => {
 });
 
 allCardsButton.addEventListener('click', () => {
-    numCards = 8;
-    cards.length = 0;
+    numCards = 19;  // Set numCards to 19 to show all the cards
+    cards.length = 0;  // Clear the current cards array
+
+    // Populate the cards array with all the 19 cards
     for (let i = 1; i <= numCards; i++) {
         cards.push({
             front: `images/fronts/front_${i}.png`,
             back: `${repoUrl}/back_${i}.png`,
-            isFavorited: false
+            isFavorited: false // Add a property to track favorited cards
         });
     }
+
+    // Reset the current card index and load the first card
     currentCardIndex = 0;
     loadCard(currentCardIndex);
 });
