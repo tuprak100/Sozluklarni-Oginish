@@ -73,13 +73,11 @@ body {
     gap: 30px; /* Space between button groups */
     margin-top: 20px; /* Space from card */
 }
-
-
-#card-number {
-    margin-top: 15px;
-    font-size: 1.2em;
+.button-group { /* NEW: Group similar buttons */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
-
 
 #prev-card-button,
 #flip-card-button,
@@ -109,7 +107,10 @@ body {
 #next-card-button {
     background-color: orange;
 }
-
+#card-number {
+    margin-top: 15px;
+    font-size: 1.2em;
+}
 #allCardsButton {
     background-color: #28a745;
 }
