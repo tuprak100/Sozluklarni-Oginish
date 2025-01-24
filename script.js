@@ -2,69 +2,83 @@ const card = document.getElementById('card');
 const front = document.getElementById('front');
 const back = document.getElementById('back');
 const cardNumberDisplay = document.getElementById('card-number');
-const nextCardButton = document.getElementById('next-card-button'); // Corrected IDs
+const nextCardButton = document.getElementById('next-card-button');
 const prevCardButton = document.getElementById('prev-card-button');
 const flipCardButton = document.getElementById('flip-card-button');
 const favoriteButton = document.getElementById('favoriteButton');
 const reviewFavoritesButton = document.getElementById('reviewFavorites');
-const allCardsButton = document.getElementById('allCardsButton'); // Added
-let isFavorited = false; // Track favorite state
+const allCardsButton = document.getElementById('allCardsButton');
 const music = document.getElementById('background-music');
-let currentCardIndex = 0;
 
-// Corrected cards array to use correct image names and full paths
-const numCards = 8;
+let currentCardIndex = 0;
+let numCards = 8;
 const cards = [];
-const repoUrl = "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs"; // Base URL for back images
+const repoUrl = "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs";
 
 for (let i = 1; i <= numCards; i++) {
-  cards.push({
-    front: `images/fronts/front_${i}.png`,
-    back: `${repoUrl}/back_${i}.png` // Use the raw URL
-  });
-}
-
-function loadCard(index) {
-  front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
-  cardNumberDisplay.textContent = `Card ${currentCardIndex + 1} of ${cards.length}`; // Use cards.length for total cards
-  fetch(cards[index].back)
-    .then(response => response.blob())
-    .then(data => {
-      const imageUrl = URL.createObjectURL(data);
-      back.innerHTML = `<img src="${imageUrl}" alt="Back">`;
+    cards.push({
+        front: `images/fronts/front_${i}.png`,
+        back: `${repoUrl}/back_${i}.png`,
+        isFavorited: false // Add a property to track favorited cards
     });
 }
 
+function loadCard(index) {
+    front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
+    cardNumberDisplay.textContent = `Card ${index + 1} of ${cards.length}`;
+    fetch(cards[index].back)
+        .then(response => response.blob())
+        .then(data => {
+            const imageUrl = URL.createObjectURL(data);
+            back.innerHTML = `<img src="${imageUrl}" alt="Back">`;
+        });
+    favoriteButton.classList.toggle('favorited', cards[index].isFavorited);
+}
+
 nextCardButton.addEventListener('click', () => {
-  currentCardIndex = (currentCardIndex + 1) % cards.length; // Use modulo for looping
-  loadCard(currentCardIndex);
-  card.classList.remove('flipped');
+    currentCardIndex = (currentCardIndex + 1) % cards.length;
+    loadCard(currentCardIndex);
+    card.classList.remove('flipped');
 });
 
 prevCardButton.addEventListener('click', () => {
-  currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length; // Corrected previous card logic.
-  loadCard(currentCardIndex);
-  card.classList.remove('flipped');
+    currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
+    loadCard(currentCardIndex);
+    card.classList.remove('flipped');
 });
 
 flipCardButton.addEventListener('click', () => {
-  card.classList.toggle('flipped');
+    card.classList.toggle('flipped');
 });
 
 favoriteButton.addEventListener('click', () => {
-  isFavorited = !isFavorited;
-  favoriteButton.classList.toggle('favorited', isFavorited); // Toggle the class
-  console.log("Card favorited:", isFavorited); // For testing
+    cards[currentCardIndex].isFavorited = !cards[currentCardIndex].isFavorited; // Update the card's favorite status
+    favoriteButton.classList.toggle('favorited', cards[currentCardIndex].isFavorited);
 });
 
 reviewFavoritesButton.addEventListener('click', () => {
-  console.log("Reviewing favorites..."); // Placeholder for review logic
-  // Add your logic to display only favorited cards here
+    const favoriteCards = cards.filter(card => card.isFavorited);
+    if (favoriteCards.length > 0) {
+        currentCardIndex = cards.indexOf(favoriteCards[0])
+        loadCard(currentCardIndex);
+        numCards = favoriteCards.length;
+        cards.length = 0;
+        cards.push(...favoriteCards);
+    }
 });
 
 allCardsButton.addEventListener('click', () => {
-  // Add your logic to show all cards here (optional)
-  console.log("Show all cards button clicked!");
+    numCards = 8;
+    cards.length = 0;
+    for (let i = 1; i <= numCards; i++) {
+        cards.push({
+            front: `images/fronts/front_${i}.png`,
+            back: `${repoUrl}/back_${i}.png`,
+            isFavorited: false // Add a property to track favorited cards
+        });
+    }
+    currentCardIndex = 0;
+    loadCard(currentCardIndex);
 });
 
 music.play();
