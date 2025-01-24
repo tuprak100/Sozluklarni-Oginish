@@ -17,13 +17,13 @@ body {
     padding: 10px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    /* width: 500px;
+    width: 590px;
     /* height: 500px; Consider removing fixed height for better responsiveness */
 }
 
 #card {
     width: 99%;
-    /*aspect-ratio: 1/1; /* Maintain square aspect ratio */
+    aspect-ratio: 1/1; /* Maintain square aspect ratio */
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
