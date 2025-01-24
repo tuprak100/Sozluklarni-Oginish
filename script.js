@@ -11,7 +11,7 @@ const allCardsButton = document.getElementById('allCardsButton');
 const music = document.getElementById('background-music');
 
 let currentCardIndex = 0;
-let numCards = 8;
+let numCards = 19;
 const cards = [];
 const repoUrl = "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs";
 
