@@ -12,9 +12,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    margin: 10px;
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 5px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     /*width: 600px;
@@ -29,7 +29,7 @@ body {
     transition: transform 0.8s;
     transform-style: preserve-3d;
     margin-top: 0; 
-    margin-bottom: 3px; /* Space below the card */
+    margin-bottom: 0; /* Space below the card */
 }
 
 #card.flipped {
