@@ -28,7 +28,8 @@ body {
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    /* margin-bottom: 10px; /* Space below the card */
+    margin-top: 0; 
+    margin-bottom: 3px; /* Space below the card */
 }
 
 #card.flipped {
