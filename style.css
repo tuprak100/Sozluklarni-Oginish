@@ -17,7 +17,7 @@ body {
     padding: 10px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    width: 600px;
     height: auto; /* Allow dynamic height based on content */
     /* height: 500px; Consider removing fixed height for better responsiveness */
 }
