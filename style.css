@@ -69,7 +69,7 @@ body {
 }
 
 #card-number {
-    margin-top: 15px;
+    margin-top: 3px;
     font-size: 1.2em;
 }
 .button-container { /* NEW: Container for all buttons */
@@ -126,7 +126,7 @@ body {
 #favoriteButton {
     border: none;
     background: none;
-    font-size: 36px;
+    font-size: 39px;
     cursor: pointer;
     padding: 0;
     color: gold; /* Gold color for the empty star */
