@@ -11,7 +11,7 @@ body {
 #card-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: top center;
     margin: 5px;
     border: 1px solid #ddd;
     padding: 3px;
