@@ -8,6 +8,7 @@ const flipCardButton = document.getElementById('flip-card-button');
 const favoriteButton = document.getElementById('favoriteButton');
 const reviewFavoritesButton = document.getElementById('reviewFavorites');
 const allCardsButton = document.getElementById('allCardsButton');
+const backgroundMusic = document.getElementById('background-music');
 
 let currentCardIndex = 0;
 let numCards = 20;
@@ -84,6 +85,14 @@ allCardsButton.addEventListener('click', () => {
     // Reset the current card index and load the first card
     currentCardIndex = 0;
     loadCard(currentCardIndex);
+});
+
+backgroundMusic.addEventListener('canplaythrough', () => {
+  backgroundMusic.play();
+});
+
+backgroundMusic.addEventListener('error', () => {
+  console.error('Error playing background music');
 });
 
 loadCard(currentCardIndex);
