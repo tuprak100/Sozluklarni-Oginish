@@ -12,9 +12,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
+    margin: 5px;
     border: 1px solid #ddd;
-    padding: 0;
+    padding: 5px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     /*width: 600px;
@@ -54,11 +54,11 @@ body {
 
 #front img,
 #back img {
-    width: 98%; /* Image takes full width */
-    height: 98%; /* Height adjusts proportionally */
+    width: 100%; /* Image takes full width */
+    height: 100%; /* Height adjusts proportionally */
     object-fit: contain; /* Ensures image fits within the card */
     object-position: center; /* Align to center */
-    margin: auto;
+    margin: 2px;
 }
 
 #front {
@@ -71,14 +71,9 @@ body {
 }
 
 #card-number {
-    position: absolute;
-    top: 5px;
-    left: 5px;
+    margin-top: 15px;
     font-size: 1.2em;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 5px;
-    border-radius: 5px;
+    
 }
 .button-container { /* NEW: Container for all buttons */
     display: flex;
