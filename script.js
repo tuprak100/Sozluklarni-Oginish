@@ -36,9 +36,9 @@ function loadCard(index) {
 
     favoriteButton.classList.toggle('favorited', cards[index].isFavorited);
 }
-    const background-music = document.getElementById('background-music');
-    background-music.loop = true;
-    background-music.play();
+    const music = document.getElementById('music');
+    music.loop = true;
+    music.play();
 }
 nextCardButton.addEventListener('click', () => {
     currentCardIndex = (currentCardIndex + 1) % cards.length;
