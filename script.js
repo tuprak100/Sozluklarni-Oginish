@@ -69,7 +69,7 @@ reviewFavoritesButton.addEventListener('click', () => {
 });
 
 allCardsButton.addEventListener('click', () => {
-    numCards = 19;  // Set numCards to 19 to show all the cards
+    numCards = 20;  // Set numCards to 20 to show all the cards
     cards.length = 0;  // Clear the current cards array
 
     // Populate the cards array with all the 19 cards
