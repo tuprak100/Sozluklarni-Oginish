@@ -8,7 +8,7 @@ const flipCardButton = document.getElementById('flip-card-button');
 const favoriteButton = document.getElementById('favoriteButton');
 const reviewFavoritesButton = document.getElementById('reviewFavorites');
 const allCardsButton = document.getElementById('allCardsButton');
-
+const music = document.getElementById('music'); // Select the music element
 
 let currentCardIndex = 0;
 let numCards = 20;
@@ -36,11 +36,18 @@ function loadCard(index) {
 
     favoriteButton.classList.toggle('favorited', cards[index].isFavorited);
 }
-    
+
+function playMusic() {
+    if (music.paused) { // Check if the music is paused
+        music.play(); // Play the music if it's paused
+    }
+}
+
 nextCardButton.addEventListener('click', () => {
     currentCardIndex = (currentCardIndex + 1) % cards.length;
     loadCard(currentCardIndex);
     card.classList.remove('flipped');
+    playMusic(); // Play music when moving to the next card
 });
 
 prevCardButton.addEventListener('click', () => {
@@ -86,9 +93,8 @@ allCardsButton.addEventListener('click', () => {
     currentCardIndex = 0;
     loadCard(currentCardIndex);
 });
-const music = document.getElementById('music');
-    music.loop = true;
-    music.play();
+
+music.loop = true; // Set the music to loop
 
 
 loadCard(currentCardIndex);
