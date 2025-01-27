@@ -54,6 +54,7 @@ prevCardButton.addEventListener('click', () => {
     currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
     loadCard(currentCardIndex);
     card.classList.remove('flipped');
+    playMusic(); // Play music when moving to the previous card
 });
 
 flipCardButton.addEventListener('click', () => {
@@ -98,3 +99,4 @@ music.loop = true; // Set the music to loop
 
 
 loadCard(currentCardIndex);
+playMusic(); // Start music once the first card is loaded
