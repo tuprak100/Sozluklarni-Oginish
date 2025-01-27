@@ -12,12 +12,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    margin: 10px;
     border: 1px solid #ddd;
     padding: 10px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    /*width: 600px;
+    width: 600px;
     /*height: auto; /* Allow dynamic height based on content */
     
 }
@@ -54,8 +54,8 @@ body {
 
 #front img,
 #back img {
-    width: 98%; /* Image takes full width */
-    height: 98%; /* Height adjusts proportionally */
+    width: 99%; /* Image takes full width */
+    height: 99%; /* Height adjusts proportionally */
     object-fit: contain; /* Ensures image fits within the card */
     object-position: center; /* Align to center */
     margin: 2px;
