@@ -70,7 +70,7 @@ body {
 }
 
 #card-number {
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: 1.2em;
 }
 
@@ -79,7 +79,7 @@ body {
     flex-direction: column; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
     gap: 30px; /* Space between button groups */
-    margin-top: 15px; /* Space from card */
+    margin-top: 10px; /* Space from card */
 }
 
 .button-group { /* Group similar buttons */
@@ -129,7 +129,7 @@ body {
 #favoriteButton {
     border: none;
     background: none;
-    font-size: 39px;
+    font-size: 59px;
     cursor: pointer;
     padding: 0;
     color: gold; /* Gold color for the empty star */
