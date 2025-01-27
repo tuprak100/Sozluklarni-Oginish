@@ -39,7 +39,9 @@ function loadCard(index) {
 
 function playMusic() {
     if (music.paused) { // Check if the music is paused
-        music.play(); // Play the music if it's paused
+        music.play().catch(error => {
+            console.error("Error playing audio: ", error);
+        }); // Play the music if it's paused, and handle any errors
     }
 }
 
@@ -99,4 +101,3 @@ music.loop = true; // Set the music to loop
 
 
 loadCard(currentCardIndex);
-playMusic(); // Start music once the first card is loaded
