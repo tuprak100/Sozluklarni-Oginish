@@ -129,7 +129,7 @@ body {
 #favoriteButton {
     border: none;
     background: none;
-    font-size: 49px;
+    font-size: 45px;
     cursor: pointer;
     padding: 0;
     color: gold; /* Gold color for the empty star */
