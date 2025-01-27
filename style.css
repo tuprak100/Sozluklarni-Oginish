@@ -79,7 +79,7 @@ body {
     flex-direction: column; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
     gap: 30px; /* Space between button groups */
-    margin-top: 20px; /* Space from card */
+    margin-top: 15px; /* Space from card */
 }
 
 .button-group { /* Group similar buttons */
