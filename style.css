@@ -17,7 +17,7 @@ body {
     padding: 10px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 600px;
+    /*width: 600px;*/
     /*height: auto; /* Allow dynamic height based on content */
     
 }
@@ -27,9 +27,8 @@ body {
     aspect-ratio: 1; /* Maintain square aspect ratio */
     max-width: 99vw;
     max-height: 99vh;
-    border: 1px solid #ccc;
-    object-fit: contain;  
-    /* position: relative;*/ 
+    border: 1px solid #ccc;  
+    position: relative;
    
     transition: transform 0.8s;
     transform-style: preserve-3d;
