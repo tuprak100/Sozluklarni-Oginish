@@ -20,6 +20,7 @@ body {
     max-width: 600px; /* Optional: restrict the max width to 600px */
     height: auto;
     box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+    justify-content: center; /* Align the card number closer */
 }
 
 #card {
@@ -70,7 +71,7 @@ body {
 }
 
 #card-number {
-    margin-top: 15px;
+    margin-top: 5px;
     font-size: 1.2em;
 }
 
