@@ -19,7 +19,7 @@ body {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     width: 600px; /* Fixed width */
     height: auto; /* Allow dynamic height based on content */
-    overflow: hidden; /* Prevent overflow of content */
+    /*overflow: hidden; /* Prevent overflow of content */
 }
 
 #card {
