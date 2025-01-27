@@ -89,7 +89,6 @@ allCardsButton.addEventListener('click', () => {
 const music = document.getElementById('music');
     music.loop = true;
     music.play();
-}
 
 
 loadCard(currentCardIndex);
