@@ -36,10 +36,7 @@ function loadCard(index) {
 
     favoriteButton.classList.toggle('favorited', cards[index].isFavorited);
 }
-    const music = document.getElementById('music');
-    music.loop = true;
-    music.play();
-}
+    
 nextCardButton.addEventListener('click', () => {
     currentCardIndex = (currentCardIndex + 1) % cards.length;
     loadCard(currentCardIndex);
@@ -89,7 +86,10 @@ allCardsButton.addEventListener('click', () => {
     currentCardIndex = 0;
     loadCard(currentCardIndex);
 });
-
+const music = document.getElementById('music');
+    music.loop = true;
+    music.play();
+}
 
 
 loadCard(currentCardIndex);
