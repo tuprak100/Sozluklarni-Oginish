@@ -79,7 +79,7 @@ body {
     flex-direction: column; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
     gap: 30px; /* Space between button groups */
-    margin-top: 10px; /* Space from card */
+    margin-top: 5px; /* Space from card */
 }
 
 .button-group { /* Group similar buttons */
@@ -101,7 +101,7 @@ body {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
@@ -129,7 +129,7 @@ body {
 #favoriteButton {
     border: none;
     background: none;
-    font-size: 59px;
+    font-size: 49px;
     cursor: pointer;
     padding: 0;
     color: gold; /* Gold color for the empty star */
