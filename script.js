@@ -8,7 +8,7 @@ const flipCardButton = document.getElementById('flip-card-button');
 const favoriteButton = document.getElementById('favoriteButton');
 const reviewFavoritesButton = document.getElementById('reviewFavorites');
 const allCardsButton = document.getElementById('allCardsButton');
-/*const backgroundMusic = document.getElementById('background-music');
+
 
 let currentCardIndex = 0;
 let numCards = 20;
