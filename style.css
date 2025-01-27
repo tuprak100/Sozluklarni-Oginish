@@ -23,9 +23,14 @@ body {
 }
 
 #card {
-    width: 98%;
+    /*width: 98%;
     aspect-ratio: 1; /* Maintain square aspect ratio */
-    position: relative;
+    max-width: 99vw;
+    max-height: 99vh;
+    border: 1px solid #ccc;
+    object-fit: contain;  
+    /* position: relative;*/ 
+   
     transition: transform 0.8s;
     transform-style: preserve-3d;
     margin: 0;
