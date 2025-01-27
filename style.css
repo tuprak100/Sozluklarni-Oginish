@@ -14,23 +14,22 @@ body {
     align-items: center;
     margin: 10px;
     border: 1px solid #ddd;
-    padding: 5px;
+    padding: 10px; /* Adjusted padding for better spacing */
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 600px;*/
+    width: 600px; /* Fixed width */
     height: auto; /* Allow dynamic height based on content */
-    
+    overflow: hidden; /* Prevent overflow of content */
 }
 
 #card {
     width: 100%;
+    max-width: 300px; /* Maximum card width */
     aspect-ratio: 1; /* Maintain square aspect ratio */
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    margin: 1px;
-    /*margin-top: 0; 
-    margin-bottom: 0; /* Space below the card */
+    margin: 0; /* Removed margin-top to eliminate the gap */
 }
 
 #card.flipped {
@@ -49,16 +48,16 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: hidden; /* Prevent images from overflowing */
 }
 
 #front img,
 #back img {
-    width: 100%; /* Image takes full width */
-    height: 100%; /* Height adjusts proportionally */
-    object-fit: contain; /* Ensures image fits within the card */
-    object-position: center; /* Align to center */
-    margin: 2px;
+    width: 100%; /* Image takes full width */
+    height: 100%; /* Height adjusts proportionally */
+    object-fit: contain; /* Ensures image fits within the card */
+    object-position: center; /* Align to center */
+    margin: 0; /* Removed margin for better fitting */
 }
 
 #front {
@@ -73,16 +72,17 @@ body {
 #card-number {
     margin-top: 15px;
     font-size: 1.2em;
-    
 }
-.button-container { /* NEW: Container for all buttons */
+
+.button-container { /* Container for all buttons */
     display: flex;
     flex-direction: column; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
     gap: 30px; /* Space between button groups */
     margin-top: 20px; /* Space from card */
 }
-.button-group { /* NEW: Group similar buttons */
+
+.button-group { /* Group similar buttons */
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -137,7 +137,7 @@ body {
 }
 
 #favoriteButton.favorited {
-    color: red; /* Orange color for the filled star */
+    color: red; /* Red color for the filled star */
 }
 
 #prev-card-button:hover,
