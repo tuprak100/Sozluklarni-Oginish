@@ -12,24 +12,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*margin: 0; /* Removed margin to remove unnecessary space */
-    padding: 5px; /* Added padding to provide some spacing around the content */
+    margin: 10px;
+    border: 1px solid #ddd;
+    padding: 5px;
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Full width of the viewport or parent container */
-    max-width: 600px; /* Optional: restrict the max width to 600px */
-    height: auto;
-    box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+    width: 600px;
+    height: auto; /* Allow dynamic height based on content */
 }
 
 #card {
-    width: 100%; /* Card takes up the full width of the container */
-    max-width: 100%; /* Ensure the card doesn't exceed the container width */
+    width: 100%;
     aspect-ratio: 1; /* Maintain square aspect ratio */
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    margin: 0; /* No margin to avoid gaps around the card */
+    margin: 0; /* Remove any margin for no space between card and buttons */
 }
 
 #card.flipped {
@@ -48,7 +46,7 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    overflow: hidden; /* Prevent images from overflowing */
+    overflow: hidden;
 }
 
 #front img,
@@ -57,7 +55,7 @@ body {
     height: 100%; /* Height adjusts proportionally */
     object-fit: contain; /* Ensures image fits within the card */
     object-position: center; /* Align to center */
-    margin: 0; /* Removed margin for better fitting */
+    margin: 2px;
 }
 
 #front {
@@ -74,18 +72,18 @@ body {
     font-size: 1.2em;
 }
 
-.button-container { /* Container for all buttons */
+.button-container {
     display: flex;
     flex-direction: column; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
-    gap: 30px; /* Space between button groups */
-    margin-top: 15px; /* Space from card */
+    gap: 10px; /* Reduced gap between button groups */
+    margin-top: 10px; /* Reduced margin to move buttons closer to the card */
 }
 
-.button-group { /* Group similar buttons */
+.button-group {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px; /* Reduced space between buttons */
 }
 
 #prev-card-button,
@@ -94,14 +92,14 @@ body {
 #favoriteButton,
 #reviewFavorites,
 #allCardsButton {
-    font-size: 20px;
-    padding: 10px 15px;
+    font-size: 18px; /* Slightly smaller font size */
+    padding: 8px 12px; /* Reduced padding for smaller buttons */
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
@@ -129,7 +127,7 @@ body {
 #favoriteButton {
     border: none;
     background: none;
-    font-size: 45px;
+    font-size: 39px;
     cursor: pointer;
     padding: 0;
     color: gold; /* Gold color for the empty star */
@@ -137,7 +135,7 @@ body {
 }
 
 #favoriteButton.favorited {
-    color: red; /* Red color for the filled star */
+    color: red; /* Orange color for the filled star */
 }
 
 #prev-card-button:hover,
