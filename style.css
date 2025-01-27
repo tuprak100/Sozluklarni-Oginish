@@ -12,8 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0; /* Removed margin to remove unnecessary space */
-    padding: 1px; /* Added padding to provide some spacing around the content */
+    /*margin: 0; /* Removed margin to remove unnecessary space */
+    padding: 5px; /* Added padding to provide some spacing around the content */
     background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%; /* Full width of the viewport or parent container */
