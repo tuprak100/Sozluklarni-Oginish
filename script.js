@@ -10,7 +10,7 @@ const reviewFavoritesButton = document.getElementById('reviewFavorites');
 const allCardsButton = document.getElementById('allCardsButton');
 
 let currentCardIndex = 0;
-let numCards = 20;
+let numCards = 304;
 const cards = [];
 const repoUrl = "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs";
 
