@@ -19,11 +19,11 @@ for (let i = 1; i <= numCards; i++) {
     cards.push({
         // Front images now also have a PNG and a JPG option
         front: `images/fronts/front_${i}.png`,
-        frontJpg: `images/fronts/front_${i}.jpg`,
+        //frontJpg: `images/fronts/front_${i}.jpg`,
         
         // Back images have the same logic
         back: `${repoUrl}/back_${i}.png`,
-        backJpg: `${repoUrl}/back_${i}.jpg`,
+        //backJpg: `${repoUrl}/back_${i}.jpg`,
         
         isFavorited: false
     });
