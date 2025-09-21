@@ -14,44 +14,20 @@ let numCards = 350;
 const cards = [];
 const repoUrl = "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs";
 
-async function populateCards() {
-    for (let i = 1; i <= numCards; i++) {
-        let frontPath = `images/fronts/front_${i}`;
-        let frontExtension = '.png'; // Default to png
+// Populate the cards array with front and back image URLs
+for (let i = 1; i <= numCards; i++) {
+    cards.push({
+        // Front images now also have a PNG and a JPG option
+        front: `images/fronts/front_${i}.png`,
+        frontJpg: `images/fronts/front_${i}.jpg`,
         
-        // Check if the JPG version of the front image exists
-        try {
-            const response = await fetch(`${frontPath}.jpg`, { method: 'HEAD' });
-            if (response.ok) {
-                frontExtension = '.jpg';
-            }
-        } catch (error) {
-            // If fetch fails, the file doesn't exist, so we stick with the default .png
-        }
-
-        let backExtension = '.png'; // Default to png for back image
-        let backPath = `${repoUrl}/back_${i}`;
-
-        // Check if the JPG version of the back image exists
-        try {
-            const response = await fetch(`${backPath}.jpg`, { method: 'HEAD' });
-            if (response.ok) {
-                backExtension = '.jpg';
-            }
-        } catch (error) {
-            // If fetch fails, the file doesn't exist, we stick with the default .png
-        }
-
-        cards.push({
-            front: `${frontPath}${frontExtension}`,
-            back: `${backPath}${backExtension}`,
-            isFavorited: false
-        });
-    }
+        // Back images have the same logic
+        back: `${repoUrl}/back_${i}.png`,
+        backJpg: `${repoUrl}/back_${i}.jpg`,
+        
+        isFavorited: false
+    });
 }
-
-// Call the async function to populate the cards
-populateCards();
 
 
 // Example to load the card at a specific index
