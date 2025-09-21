@@ -19,11 +19,11 @@ for (let i = 1; i <= numCards; i++) {
     cards.push({
         // Front images now also have a PNG and a JPG option
         front: `images/fronts/front_${i}.png`,
-        front: `images/fronts/front_${i}.jpg`,
+        //frontJpg: `images/fronts/front_${i}.jpg`,
         
         // Back images have the same logic
         back: `${repoUrl}/back_${i}.png`,
-        back: `${repoUrl}/back_${i}.jpg`,
+        //backJpg: `${repoUrl}/back_${i}.jpg`,
         
         isFavorited: false
     });
@@ -32,17 +32,51 @@ for (let i = 1; i <= numCards; i++) {
 
 // Example to load the card at a specific index
 function loadCard(index) {
-    front.innerHTML = `<img src="${cards[index].front}" alt="Front">`;
-    cardNumberDisplay.textContent = `Card ${index + 1} of ${cards.length}`;
-    
-    fetch(cards[index].back)
-        .then(response => response.blob())
-        .then(data => {
-            const imageUrl = URL.createObjectURL(data);
-            back.innerHTML = `<img src="${imageUrl}" alt="Back">`;
-        });
+    const front = document.getElementById('front');
+    const back = document.getElementById('back');
+    const card = cards[index];
 
-    favoriteButton.classList.toggle('favorited', cards[index].isFavorited);
+    // Load the front image with a fallback from PNG to JPG
+    const frontPngUrl = `images/fronts/front_${index + 1}.png`;
+    const frontJpgUrl = `images/fronts/front_${index + 1}.jpg`;
+    
+    // Check for PNG, if it fails, check for JPG
+    fetch(frontPngUrl)
+        .then(response => {
+            if (!response.ok) {
+                // PNG failed, try JPG
+                return fetch(frontJpgUrl);
+            }
+            return response;
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            front.innerHTML = `<img src="${URL.createObjectURL(blob)}" alt="Front">`;
+        })
+        .catch(error => console.error('Error loading front image:', error));
+
+    // Load the back image with a fallback from PNG to JPG
+    const backPngUrl = `${repoUrl}/back_${index + 1}.png`;
+    const backJpgUrl = `${repoUrl}/back_${index + 1}.jpg`;
+    
+    // Check for PNG, if it fails, check for JPG
+    fetch(backPngUrl)
+        .then(response => {
+            if (!response.ok) {
+                // PNG failed, try JPG
+                return fetch(backJpgUrl);
+            }
+            return response;
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            back.innerHTML = `<img src="${URL.createObjectURL(blob)}" alt="Back">`;
+        })
+        .catch(error => console.error('Error loading back image:', error));
+
+    // Update card number and other elements
+    cardNumberDisplay.textContent = `Card ${index + 1} of ${cards.length}`;
+    favoriteButton.classList.toggle('favorited', card.isFavorited);
     const cardSound = document.getElementById('cardSound');
     cardSound.loop = true;
     cardSound.play();
@@ -101,9 +135,9 @@ allCardsButton.addEventListener('click', () => {
     for (let i = 1; i <= numCards; i++) {
         cards.push({
             front: `images/fronts/front_${i}.png`,
-            front: `images/fronts/front_${i}.jpg`,
+            //frontJpg: `images/fronts/front_${i}.jpg`,
             back: `${repoUrl}/back_${i}.png`,
-            back: `${repoUrl}/back_${i}.jpg`,
+            //backJpg: `${repoUrl}/back_${i}.jpg`,
             isFavorited: false // Add a property to track favorited cards
         });
     }
