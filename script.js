@@ -17,8 +17,8 @@ const repoUrl = "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish
 // Populate the cards array with front and back image URLs
 for (let i = 1; i <= numCards; i++) {
     cards.push({
-        front: `images/fronts/front_${i}.png`,
-        back: `${repoUrl}/back_${i}.png`,
+        front: `images/fronts/front_${i}.jpg`,
+        back: `${repoUrl}/back_${i}.jpg`,
         isFavorited: false
     });
 }
