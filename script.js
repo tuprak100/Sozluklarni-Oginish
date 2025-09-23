@@ -10,7 +10,7 @@ const reviewFavoritesButton = document.getElementById('reviewFavorites');
 const allCardsButton = document.getElementById('allCardsButton');
 
 let currentCardIndex = 0;
-let numCards = 350;
+let numCards = 351;   // also change below:  numCards = 351; 
 const cards = [];
 const repoUrl = "https://raw.githubusercontent.com/tuprak100/Sozluklarni-Oginish/main/images/backs";
 
@@ -128,7 +128,7 @@ reviewFavoritesButton.addEventListener('click', () => {
 });
 
 allCardsButton.addEventListener('click', () => {
-    numCards = 350;  // Set numCards to 20 to show all the cards
+    numCards = 351;  // Set numCards to 20 to show all the cards
     cards.length = 0;  // Clear the current cards array
 
     // Populate the cards array with all the 20 cards
